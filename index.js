@@ -1,10 +1,13 @@
 // Import
 const inquirer = require('inquirer');
+// const server = require('./server')
+
 
 // Variables
 mainMenuPromptQuestions = ['View all departments','View all roles','View all employees','Add a department','Add a role','Add an employee','Update an employee role']
 
 // Functions
+function init() {
 inquirer
  .prompt([
     {
@@ -37,7 +40,6 @@ inquirer
         // Function Placeholder
     }
  });
+}
 
- 
-
- 
+// server.getDepartments();
