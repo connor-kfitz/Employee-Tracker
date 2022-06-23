@@ -1,7 +1,7 @@
 // Import
 const inquirer = require('inquirer');
 const consoleTable = require('console.table');
-const queries = require('./db/queries')
+const queries = require('./db/queries');
 
 // Variables
 mainMenuPromptQuestions = ['View all departments','View all roles','View all employees','Add a department','Add a role','Add an employee','Update an employee role'];
@@ -48,4 +48,22 @@ function viewDepartments() {
         console.log(consoleTable.getTable(data))
     });
 };
+
+function viewRoles() {
+    queries.viewRole()
+      .then(([data]) => {
+          console.log(consoleTable.getTable(data))
+      });
+  };
+
+function viewEmployees() {
+queries.viewEmployee()
+    .then(([data]) => {
+        console.log(consoleTable.getTable(data))
+    });
+};
+
+viewDepartments();
+viewRoles();
+viewEmployees();
 
