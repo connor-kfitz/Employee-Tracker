@@ -59,6 +59,31 @@ function mainMenu() {
     });
     }
 
+// View Data Functions
+function viewDepartments() {
+    queries.viewDepartment()
+      .then(([data]) => {
+          console.log(consoleTable.getTable(data))
+          mainMenu();
+      });
+  };
+  
+  function viewRoles() {
+      queries.viewRole()
+        .then(([data]) => {
+            console.log(consoleTable.getTable(data))
+            mainMenu();
+        });
+    };
+  
+  function viewEmployees() {
+  queries.viewEmployee()
+      .then(([data]) => {
+          console.log(consoleTable.getTable(data))
+          mainMenu();
+      });
+  };
+
 // Add Data Functions
 function addDepartment(){
     inquirer
@@ -176,31 +201,6 @@ function updateRole(){
             })
     })
 }
-
-// View Data Functions
-function viewDepartments() {
-  queries.viewDepartment()
-    .then(([data]) => {
-        console.log(consoleTable.getTable(data))
-        mainMenu();
-    });
-};
-
-function viewRoles() {
-    queries.viewRole()
-      .then(([data]) => {
-          console.log(consoleTable.getTable(data))
-          mainMenu();
-      });
-  };
-
-function viewEmployees() {
-queries.viewEmployee()
-    .then(([data]) => {
-        console.log(consoleTable.getTable(data))
-        mainMenu();
-    });
-};
 
 // Data Collection Functions
 function getDepartments(){

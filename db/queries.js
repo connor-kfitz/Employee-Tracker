@@ -1,5 +1,6 @@
 const db = require('./sqlConnection');
 
+// Class to execute queries
 class query {
     constructor(db) {
         this.db = db;
