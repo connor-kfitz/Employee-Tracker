@@ -47,6 +47,7 @@ function mainMenu() {
         return;
         }
         else if(data.mainMenuPrompt == mainMenuPromptQuestions[4]){
+        console.log(departmentList);
         addRoles();
         }
         else if(data.mainMenuPrompt == mainMenuPromptQuestions[5]){
@@ -206,9 +207,9 @@ function getDepartments(){
     queries.viewDepartment()
     .then(([data]) => {
         for(i=0; i < data.length; i++){
-            if(!departmentList.includes(data[i].dep_name)){
-                departmentList.push(data[i].dep_name);
-                departmentIDList.push(data[i].id)
+            if(!departmentList.includes(data[i].Department)){
+                departmentList.push(data[i].Department);
+                departmentIDList.push(data[i].ID)
             }
         }
     });
@@ -218,9 +219,9 @@ function getRoles(){
     queries.viewRole()
     .then(([data]) => {
         for(i=0; i < data.length; i++){
-            if(!roleList.includes(data[i].title)){
-                roleList.push(data[i].title);
-                roleIDList.push(data[i].id);
+            if(!roleList.includes(data[i].Title)){
+                roleList.push(data[i].Title);
+                roleIDList.push(data[i].ID);
             }
         }
     });
@@ -230,12 +231,11 @@ function getEmployees(){
     queries.viewEmployee()
     .then(([data]) => {
         for(i=0; i < data.length; i++){
-            managerList.push(data[i].first_name + " " + data[i].last_name);
-            managerIDList.push(data[i].id)
+            managerList.push(data[i].First + " " + data[i].Last);
+            managerIDList.push(data[i].ID)
         }
     });
 }
 
 // Start Program
 mainMenu();
-// getEmployees();

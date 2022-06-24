@@ -6,19 +6,19 @@ class query {
     }
 
     viewDepartment() {
-        return this.db.promise().query(`SELECT * 
+        return this.db.promise().query(`SELECT department.id AS ID, dep_name AS \`Department\`
                                         FROM department`);
     }   
     
     viewRole() {
-        return this.db.promise().query(`SELECT empRole.id, title, salary, dep_name
+        return this.db.promise().query(`SELECT empRole.id AS ID, title AS Title, salary AS Salary, dep_name AS \`Department Name\`
                                         FROM empRole
                                         LEFT JOIN department 
                                         ON empRole.department_id = department.id`);
     }  
 
     viewEmployee() {
-        return this.db.promise().query(`SELECT employee.id, first_name, last_name, title, salary, dep_name, manager_id
+        return this.db.promise().query(`SELECT employee.id AS ID, first_name AS \`First\`, last_name AS \`Last\`, title AS Title, salary AS Salary, dep_name AS \`Department Name\`, manager_id AS \`Manager ID\`
                                         FROM employee
                                         LEFT JOIN empRole
                                         ON employee.role_id = empRole.id
